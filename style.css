@@ -1,10 +1,29 @@
 #container {
     margin: 0px auto;
-    width: 500px;
-    height: 375px;
-    border: 10px black solid;
+    border: 1px black solid;
 }
+
+#resize {
+	width:45%;
+	resize: both;
+	overflow: auto;
+	border:2px solid black;
+}
+
 #localVideoElement {
 	float: left;
-	margin-left: 10%;
+	margin-left: 5%;
+	height: 100%;width: 90%;
+}
+
+#peerVideoElement {
+	float: right;
+	margin-right: 5%;
+	height: 750px;
+	width: 750px;
+	border: 10px black solid;
+}
+
+#clear {
+	clear:both;
 }
