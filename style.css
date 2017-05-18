@@ -3,7 +3,8 @@
     border: 1px black solid;
 }
 
-#resize {
+.resize {
+	display:inline-block;
 	width:45%;
 	resize: both;
 	overflow: auto;
@@ -11,17 +12,13 @@
 }
 
 #localVideoElement {
-	float: left;
-	margin-left: 5%;
-	height: 100%;width: 90%;
+	height: 90%;width: 90%;
+	border:1px solid black;
 }
 
 #peerVideoElement {
-	float: right;
-	margin-right: 5%;
-	height: 750px;
-	width: 750px;
-	border: 10px black solid;
+	height: 90%;width: 90%;	
+	border:1px solid red;
 }
 
 #clear {
