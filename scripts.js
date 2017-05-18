@@ -13,5 +13,5 @@ function handleVideo(stream) {
 }
  
 function videoError(e) {
-    // do something
+    console.log(e);
 }

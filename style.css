@@ -13,12 +13,10 @@
 
 #localVideoElement {
 	height: 90%;width: 90%;
-	border:1px solid black;
 }
 
 #peerVideoElement {
-	height: 90%;width: 90%;	
-	border:1px solid red;
+	height: 90%;width: 90%;
 }
 
 #clear {
