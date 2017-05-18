@@ -1,14 +1,12 @@
-* {
-	border:; 1px solid black;
-}
-
 #container {
     margin: 0px auto;
     width: 500px;
     height: 375px;
     border: 10px black solid;
 }
-#videoElement {
-    width: 500px;
-    height: 375px;
+#localVideoElement {
+	float: left;
+	margin-left: 10%;
+    width: 750px;
+    height: 500px;
 }
