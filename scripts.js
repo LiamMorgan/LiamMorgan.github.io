@@ -1,17 +1,28 @@
-var video = document.querySelector("#localVideoElement");
- 
-navigator.getUserMedia = navigator.getUserMedia || 
-navigator.webkitGetUserMedia || navigator.mozGetUserMedia || 
-navigator.msGetUserMedia || navigator.oGetUserMedia;
- 
-if (navigator.getUserMedia) {       
-    navigator.getUserMedia({video: true}, handleVideo, videoError);
+var b = 0;
+
+function setup() {
+	createCanvas(displayWidth*0.7, displayHeight*0.8);
+	frameRate(60);
+	url = getURL();	
+	background(0); 
 }
- 
-function handleVideo(stream) {
-    video.src = window.URL.createObjectURL(stream);
+
+function draw() { 	
+  	drawInfo();
+  	wew();
 }
- 
-function videoError(e) {
-    console.log(e);
+
+function drawInfo() {
+	noStroke();
+	text(url, 10, height-10);
+	print(b);
+}
+
+function wew() {
+	b++;
+	if(b % 5 == 0) {
+		noStroke();
+		fill(255);
+		ellipse(random(width), random(height), random(30));
+	}
 }
