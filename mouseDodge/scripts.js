@@ -31,6 +31,26 @@ function drawInfo() {
 	text(rocks.length, width/2, 50);
 }
 
+function drawMouse() {
+	stroke(255);fill(255); strokeWeight(4);
+	line(mouseX, mouseY, pmouseX, pmouseY);
+	line(pmouseX, pmouseY, ppX, ppY);
+	noFill();
+	strokeWeight(1);
+	ellipse(mouseX, mouseY, 20)
+	var ppX = pmouseX; var ppY = pmouseY;
+}
+
+function drawEnd() {
+	background(0);
+	fill(255);
+	textSize(120);
+	text(rocks.length, width/2, height/1.5);
+	textSize(60);
+	text("Press space to restart.", width/2.7, height/1.5+100);
+	image(img, width/2-50, 20, img.width/3, img.height/3);
+}
+
 function Floaty() {
 	this.s = random()*100;
 	this.x = random(width); this.y = random(height);
@@ -75,25 +95,6 @@ function updateRocks() {
 	}
 }
 
-function drawMouse() {
-	stroke(255);fill(255); strokeWeight(4);
-	line(mouseX, mouseY, pmouseX, pmouseY);
-	line(pmouseX, pmouseY, ppX, ppY);
-	noFill();
-	strokeWeight(1);
-	ellipse(mouseX, mouseY, 20)
-	var ppX = pmouseX; var ppY = pmouseY;
-}
-
-function drawEnd() {
-	background(0);
-	fill(255);
-	textSize(120);
-	text(rocks.length, width/2, height/1.5);
-	textSize(60);
-	text("Press space to restart.", width/2.7, height/1.5+100);
-	image(img, width/2-50, 20, img.width/3, img.height/3);
-}
 function keyPressed() {
 	if(keyCode == 32 && gameState == true) {
 		gameState = false;
