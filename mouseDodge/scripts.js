@@ -2,7 +2,7 @@ var gameState, count;
 var rocks = new Array();
 
 function setup() {
-	createCanvas(windowWidth*0.992, windowHeight*0.979);
+	createCanvas(windowWidth*0.992, windowHeight*0.93);
 	frameRate(60);
 	url = getURL();	
 	count = 0;
@@ -11,6 +11,9 @@ function setup() {
 //Default p5 js methods
 function draw() {
 	background(0);
+	noFill();
+	stroke(255);
+	rect(0,0,width-2,height-2);
 	if(!gameState) {
 		count++;
 	  	drawInfo();
@@ -43,6 +46,9 @@ function drawMouse() {
 //End game screen draw method.
 function drawEnd() {
 	background(0);
+	noFill();
+	stroke(255);
+	rect(0,0,width-2,height-2);
 	fill(255);
 	textSize(120);
 	text(rocks.length, width/2, height/1.5);
@@ -52,7 +58,7 @@ function drawEnd() {
 }
 //
 function Rock() {
-	this.s = random(3, 100);
+	this.s = random(8, 100);
 	this.f = Math.floor(random(0,2));
 	this.x = random(width); this.y = random(height);
 	this.xMove = random(-10, 11); this.yMove = random(-10, 11);

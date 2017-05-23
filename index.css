@@ -1,3 +1,6 @@
 li {
 	border:1px solid white;
+	display:inline-block;
+	float:left;
+	margin-left:2%;
 }
