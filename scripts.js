@@ -1,4 +1,4 @@
-var f, tick = 0;
+var f, gameState;
 var rocks = new Array();
 function setup() {
 	createCanvas(windowWidth*0.992, windowHeight*0.979);
@@ -10,18 +10,24 @@ function setup() {
 
 function draw() {
 	background(0);
-  	drawInfo();
-  	updateRocks();
+	if(!gameState) {
+	  	drawInfo();
+	  	updateRocks();
+	  	drawTrail();
+	} else {
+		drawEnd();
+	}
 }
 
 function drawInfo() {
-	tick++;
+	textSize(12);
 	noStroke();
 	fill(255);
 	text(url, 10, height-10);
-	text(tick, width-50, height-10);
-	text(rocks.length, width-50, height-50);
-	print(rocks);
+	text(mouseX, 10, height-25); text(mouseY, 10, height-40);
+	text(frameCount, width-50, height-10);
+	textSize(60);
+	text(rocks.length, width/2, 50);
 }
 
 function Floaty() {
@@ -43,6 +49,10 @@ function Floaty() {
 		if(this.y <= -10-this.s) {
 			this.y = height+this.s;
 		}
+		if(this.x >= mouseX-10 && this.x <= mouseX+10
+			&& this.y >= mouseY-10 && this.y <= mouseY+10) {
+			gameState = true;
+		}
 	}
 	this.draw = function() {
 		ellipse(this.x, this.y, this.s);
@@ -50,17 +60,30 @@ function Floaty() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth*0.992, windowHeight*0.979);
 }
 
 function updateRocks() {
-	if(tick%60 == 0){
+	if(frameCount%60 == 0){
 		rock = new Floaty();
 		append(rocks, rock);
 	}
 	for(let rock of rocks) {
 		rock.update();
 		rock.draw();
-		print(rock);
 	}
+}
+
+function drawTrail() {
+	stroke(255);fill(255); strokeWeight(4);
+	line(mouseX, mouseY, pmouseX, pmouseY);
+	line(pmouseX, pmouseY, ppX, ppY);
+	var ppX = pmouseX; var ppY = pmouseY;
+}
+
+function drawEnd() {
+	background(0);
+	textSize(120);
+	text(rocks.length, width/2, height/2);
+	text("wew lad.", width/2-175, height/2+100);
 }
