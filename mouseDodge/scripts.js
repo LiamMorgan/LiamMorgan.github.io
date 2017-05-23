@@ -1,5 +1,6 @@
 var gameState, count;
 var rocks = new Array();
+
 function setup() {
 	createCanvas(windowWidth*0.992, windowHeight*0.979);
 	frameRate(60);
@@ -7,7 +8,7 @@ function setup() {
 	count = 0;
 	img = loadImage("../images/mouseDodge.png");
 }
-
+//Default p5 js methods
 function draw() {
 	background(0);
 	if(!gameState) {
@@ -19,18 +20,17 @@ function draw() {
 		drawEnd();
 	}
 }
-
+//Draws info such as score, mouse pos, frame count.
 function drawInfo() {
 	textSize(12);
 	noStroke();
 	fill(255);
 	text(url, 10, height-10);
-	text(mouseX, 10, height-25); text(mouseY, 10, height-40);
 	text(count, width-50, height-10);
 	textSize(60);
 	text(rocks.length, width/2, 50);
 }
-
+//Mouse properties, hitbox circle, and line trail.
 function drawMouse() {
 	stroke(255);fill(255); strokeWeight(4);
 	line(mouseX, mouseY, pmouseX, pmouseY);
@@ -40,7 +40,7 @@ function drawMouse() {
 	ellipse(mouseX, mouseY, 20)
 	var ppX = pmouseX; var ppY = pmouseY;
 }
-
+//End game screen draw method.
 function drawEnd() {
 	background(0);
 	fill(255);
@@ -50,9 +50,10 @@ function drawEnd() {
 	text("Press space to restart.", width/2.7, height/1.5+100);
 	image(img, width/2-200, 20, img.width/3, img.height/3);
 }
-
-function Floaty() {
-	this.s = random()*100;
+//
+function Rock() {
+	this.s = random(3, 100);
+	this.f = Math.floor(random(0,2));
 	this.x = random(width); this.y = random(height);
 	this.xMove = random(-10, 11); this.yMove = random(-10, 11);
 	this.update = function() {
@@ -76,7 +77,16 @@ function Floaty() {
 		}
 	}
 	this.draw = function() {
-		ellipse(this.x, this.y, this.s);
+		if(this.f == 0) {
+			noFill();
+			stroke(255);
+			ellipse(this.x, this.y, this.s);
+		} else {
+			fill(255);
+			stroke(255);
+			ellipse(this.x, this.y, this.s);
+		}
+		
 	}
 }
 
@@ -86,8 +96,14 @@ function windowResized() {
 
 function updateRocks() {
 	if(count%60 == 0){
-		rock = new Floaty();
+		rock = new Rock();
+		if(rock.x+(rock.s/2) >= mouseX-20 && rock.x-(rock.s/2) <= mouseX+20
+		&& rock.y+(rock.s/2) >= mouseY-20 && rock.y-(rock.s/2) <= mouseY+20) {
+			rock.x -= random(width);rock.y -= random(height);
+			updateRocks();
+		}
 		append(rocks, rock);
+
 	}
 	for(let rock of rocks) {
 		rock.update();
