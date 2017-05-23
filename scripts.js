@@ -13,7 +13,7 @@ function draw() {
 	if(!gameState) {
 	  	drawInfo();
 	  	updateRocks();
-	  	drawTrail();
+	  	drawMouse();
 	} else {
 		drawEnd();
 	}
@@ -31,9 +31,9 @@ function drawInfo() {
 }
 
 function Floaty() {
-	this.s = random()*30;
+	this.s = random()*100;
 	this.x = random(width); this.y = random(height);
-	this.xMove = Math.floor(random(-10, 11)); this.yMove = Math.floor(random(-10, 11));
+	this.xMove = random(-10, 11); this.yMove = random(-10, 11);
 	this.update = function() {
 		this.x += this.xMove;
 		this.y += this.yMove;
@@ -49,8 +49,8 @@ function Floaty() {
 		if(this.y <= -10-this.s) {
 			this.y = height+this.s;
 		}
-		if(this.x >= mouseX-10 && this.x <= mouseX+10
-			&& this.y >= mouseY-10 && this.y <= mouseY+10) {
+		if(this.x+(this.s/2) >= mouseX-20 && this.x-(this.s/2) <= mouseX+20
+			&& this.y+(this.s/2) >= mouseY-20 && this.y-(this.s/2) <= mouseY+20) {
 			gameState = true;
 		}
 	}
@@ -74,15 +74,19 @@ function updateRocks() {
 	}
 }
 
-function drawTrail() {
+function drawMouse() {
 	stroke(255);fill(255); strokeWeight(4);
 	line(mouseX, mouseY, pmouseX, pmouseY);
 	line(pmouseX, pmouseY, ppX, ppY);
+	noFill();
+	strokeWeight(1);
+	ellipse(mouseX, mouseY, 20)
 	var ppX = pmouseX; var ppY = pmouseY;
 }
 
 function drawEnd() {
 	background(0);
+	fill(255);
 	textSize(120);
 	text(rocks.length, width/2, height/2);
 	text("wew lad.", width/2-175, height/2+100);
