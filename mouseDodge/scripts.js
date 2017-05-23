@@ -4,8 +4,6 @@ function setup() {
 	createCanvas(windowWidth*0.992, windowHeight*0.979);
 	frameRate(60);
 	url = getURL();	
-	var f = new Floaty();
-	append(rocks, f);
 	count = 0;
 	img = loadImage("../images/mouseDodge.png");
 }
@@ -93,8 +91,8 @@ function drawEnd() {
 	textSize(120);
 	text(rocks.length, width/2, height/2);
 	textSize(60);
-	text("Press space to restart.", width/3, height/2+100);
-	image(img, width/2-img.width, 20, 300 300);
+	text("Press space to restart.", width/2.7, height/2+100);
+	image(img, width/2-img.width, 20, 300, 300);
 }
 function keyPressed() {
 	if(keyCode == 32 && gameState == true) {
