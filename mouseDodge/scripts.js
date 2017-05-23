@@ -1,16 +1,19 @@
-var f, gameState;
+var gameState, count;
 var rocks = new Array();
 function setup() {
 	createCanvas(windowWidth*0.992, windowHeight*0.979);
 	frameRate(60);
 	url = getURL();	
-	f = new Floaty();
+	var f = new Floaty();
 	append(rocks, f);
+	count = 0;
+	img = loadImage("../images/mouseDodge.png");
 }
 
 function draw() {
 	background(0);
 	if(!gameState) {
+		count++;
 	  	drawInfo();
 	  	updateRocks();
 	  	drawMouse();
@@ -25,7 +28,7 @@ function drawInfo() {
 	fill(255);
 	text(url, 10, height-10);
 	text(mouseX, 10, height-25); text(mouseY, 10, height-40);
-	text(frameCount, width-50, height-10);
+	text(count, width-50, height-10);
 	textSize(60);
 	text(rocks.length, width/2, 50);
 }
@@ -64,7 +67,7 @@ function windowResized() {
 }
 
 function updateRocks() {
-	if(frameCount%60 == 0){
+	if(count%60 == 0){
 		rock = new Floaty();
 		append(rocks, rock);
 	}
@@ -89,5 +92,14 @@ function drawEnd() {
 	fill(255);
 	textSize(120);
 	text(rocks.length, width/2, height/2);
-	text("wew lad.", width/2-175, height/2+100);
+	textSize(60);
+	text("Press space to restart.", width/3, height/2+100);
+	image(img, width/2, height/4);
+}
+function keyPressed() {
+	if(keyCode == 32 && gameState == true) {
+		gameState = false;
+		rocks.length = 0;
+		count = 0;
+	}
 }
