@@ -48,7 +48,7 @@ function drawEnd() {
 	text(rocks.length, width/2, height/1.5);
 	textSize(60);
 	text("Press space to restart.", width/2.7, height/1.5+100);
-	image(img, width/2-150, 20, img.width/3, img.height/3);
+	image(img, width/2-200, 20, img.width/3, img.height/3);
 }
 
 function Floaty() {
