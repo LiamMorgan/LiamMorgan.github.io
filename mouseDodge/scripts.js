@@ -92,7 +92,11 @@ function drawEnd() {
 	text(rocks.length, width/2, height/2);
 	textSize(60);
 	text("Press space to restart.", width/2.7, height/2+100);
+<<<<<<< HEAD
 	image(img, width/2-img.width, 20);
+=======
+	image(img, width/2-img.width, 20, 300, 300);
+>>>>>>> master
 }
 function keyPressed() {
 	if(keyCode == 32 && gameState == true) {
