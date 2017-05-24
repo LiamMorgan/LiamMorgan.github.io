@@ -60,7 +60,7 @@ function drawEnd() {
 function Rock() {
 	this.s = random(8, 100);
 	this.f = Math.floor(random(0,2));
-	this.x = random(width); this.y = random(height);
+	this.x = random(width, width*2); this.y = random(height, height*2);
 	this.xMove = random(-10, 11); this.yMove = random(-10, 11);
 	this.update = function() {
 		this.x += this.xMove;
@@ -103,13 +103,7 @@ function windowResized() {
 function updateRocks() {
 	if(count%60 == 0){
 		rock = new Rock();
-		if(rock.x+(rock.s/2) >= mouseX-20 && rock.x-(rock.s/2) <= mouseX+20
-		&& rock.y+(rock.s/2) >= mouseY-20 && rock.y-(rock.s/2) <= mouseY+20) {
-			rock.x -= random(width);rock.y -= random(height);
-			updateRocks();
-		}
 		append(rocks, rock);
-
 	}
 	for(let rock of rocks) {
 		rock.update();
