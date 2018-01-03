@@ -1,0 +1,23 @@
+body {
+	background-image: url("http://thenerdstash.com/wp-content/uploads/2016/07/monster_hunter_generations-1920x1080.jpg");
+	background-size: cover;
+}
+
+p {
+	padding:0;
+	color:white;
+	text-align: center;
+	font-family:Arial;
+	-webkit-text-stroke-width:2.54px;
+    -webkit-text-stroke-color: black;
+}
+
+#countdownp {
+	font-size:450%;
+	line-height: 575px;
+}
+
+#countdownNum {
+	margin-top: -15%;
+	font-size:450%;
+}
