@@ -22,20 +22,36 @@ var rand = images[Math.floor(Math.random() * images.length)];
 
 document.body.style.backgroundImage = 'url(' + rand + ')';
 
-var countDownDate = new Date("Jan 26, 2018 00:00:00").getTime();
+var ps4DownDate = new Date("Jan 26, 2018 00:00:00").getTime();
+var pcDownDate = new Date("Sep 22, 2018 00:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
   var now = new Date().getTime();
-  var difference = countDownDate - now;
+  var difference = ps4DownDate - now;
   var day = Math.floor(difference / (1000 * 60 * 60 * 24));
   var hour = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minute = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   var second = Math.floor((difference % (1000 * 60)) / 1000);
-  document.getElementById("countdownNum").innerHTML = day + " days, " + hour + " hours, "
+  document.getElementById("ps4Rel").innerHTML = day + " days, " + hour + " hours, "
   + minute + " minutes and " + second + " seconds ";
   if (difference < 0) {
     clearInterval(x);
-    document.getElementById("countdownNum").innerHTML = "IT'S OUT";
+    document.getElementById("ps4Rel").innerHTML = "IT'S OUT";
+  }
+}, 1000);
+
+var y = setInterval(function() {
+  var now = new Date().getTime();
+  var difference = pcDownDate - now;
+  var day = Math.floor(difference / (1000 * 60 * 60 * 24));
+  var hour = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minute = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  var second = Math.floor((difference % (1000 * 60)) / 1000);
+  document.getElementById("pcRel").innerHTML = day + " days, " + hour + " hours, "
+  + minute + " minutes and " + second + " seconds ";
+  if (difference < 0) {
+    clearInterval(x);
+    document.getElementById("pcRel").innerHTML = "IT'S OUT";
   }
 }, 1000);
