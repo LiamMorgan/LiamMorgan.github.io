@@ -1,6 +1,58 @@
-li {
-	border:1px solid white;
-	display:inline-block;
-	float:left;
-	margin-left:2%;
+html{
+	min-height:100%;/* make sure it is at least as tall as the viewport */
+	min-width:100%;/* make sure it is at least as tall as the viewport */
+	position:relative;
+	font-family: 'Montserrat', sans-serif;
+}
+body{
+	height:100%; /* force the BODY element to match the height of the HTML element */
+	width:100%;
+	background-color: #FFFFF0;
+	overflow-x: hidden;
+}
+
+header {
+	position:absolute;
+	height: 50px;
+	width: 100%;
+	background-color:#FFFFFF;
+	top:0;
+    bottom:0;
+    left:0;
+	right:0;
+	overflow: hidden;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#column {
+	min-width: 800px;
+	width:45%;
+	margin:0 auto;
+	margin-top:50px;
+	position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+	right:0;
+	text-align: center;
+    overflow:hidden;
+	z-index:-1; /* Remove this line if it's not going to be a background! */
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box {
+	min-width:500px;
+	width:50%;
+	border:1px solid black;
+	display:block;
+	text-align: center;
+	margin:0 auto;
+	margin-bottom:20px;
+}
+
+.box p {
+	border-top: 1px solid black;
+	margin-bottom:0;
+	padding:10px;
 }
