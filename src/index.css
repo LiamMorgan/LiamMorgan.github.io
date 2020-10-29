@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  font-family: 'Mukta', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x:hidden;
+}
+
+code {
+  font-family: 'Mukta', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --font-color: #dddddd;
+}
+
+.container {
+  border: 1px solid black;
+}
+
+a:hover {
+  text-decoration:none !important;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+/*End general css*/
+/*nav bar*/
+.nav {
+  position:absolute;
+  width:100vw;
+  top:0;
+  left:0;
+  background-color:rgba(0,0,0,0.6);
+  z-index: 2;
+}
+
+.nav ul {
+  width: 50%;
+  margin:0;
+  padding:0;
+}
+
+.nav .nav-item {
+  list-style-type: none;
+}
+
+.nav .nav-item .nav-link,
+.nav .nav-item .nav-link:hover, 
+.nav .nav-item .nav-link:visited, 
+.nav .nav-item .nav-link:active {
+  text-decoration:none;
+  color: var(--font-color);
+}
+/*end nav bar*/
+/*general jumbo*/
+.jumbo {
+  min-height: 100vh;
+  z-index: 1;
+  background-image: url(./images/home-background.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed
+}
+/*end general jumbo*/
+/*home page*/
+.author {
+  background-color:rgba(0,0,0,0.6);
+}
+
+.author-image a img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.author-info h1, 
+.author-info h5 {
+  color:var(--font-color);
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .author-image {
+    margin-top:60px;
+  }
+
+  .author-image a {
+    margin-top:0;
+  }
+
+  .author-info h1 {
+    font-size: 4rem;
+  }
+
+  .author-info h5 {
+    font-size: 1rem;
+  }
+}
+/*end home page*/
+/*projects*/
+.projects {
+  margin-top: 80px;
+}
+
+.card-title {
+  margin-bottom:0 !important;
+}
+
+.card-footer small {
+  float:left;
+}
+/*end projects*/
+/*contacts*/
+.contact {
+  width:100vw;
+  background-color:rgba(0,0,0,0.6);
+}
+
+.socButton {
+  font-size: 2.5rem
+}
+
+.socLink,
+.socLink:hover,
+.socLink:active,
+.socLink:visited {
+  text-decoration:none;
+  color: var(--font-color);
+}
+
+.socLink:hover {
+  filter:brightness(1.2)
+}
+
+.buttonLinkedInLeft {
+  background-color: #0e76a8;
+}
+
+.buttonLinkedInRight {
+  background-color: #0c6188;
+}
+
+.buttonGitHubLeft {
+  background-color: #333333;
+}
+
+.buttonGitHubRight {
+  background-color: #242424;
+}
+
+.buttonTwitterLeft {
+  background-color: #00acee;
+}
+
+.buttonTwitterRight {
+  background-color: #138dc5;
+}
+
+.buttonPayPalLeft {
+  background-color: #253B80;
+}
+
+.buttonPayPalRight {
+  background-color: #2997D8;
+}
+
+@media screen and (max-width: 1200px) {
+  .contact {
+    margin-top:62px;
+  }
+}
+
+#emailBody {
+  resize: both;
+  overflow: auto;
+}
+/*end contacts*/
+/*css transitions*/
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: all 1s;
+}
+/*end css transitions*/
