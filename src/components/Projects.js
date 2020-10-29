@@ -11,7 +11,7 @@ import RandomHex from "../images/projects/random-hex.png";
 
 export default function Projects() {
     return (
-        <div className="row no-gutters justify-content-around align-items-stretch d-flex mx-5 projects">
+        <div className="row no-gutters justify-content-around align-items-stretch d-flex mx-2 projects">
             <ProjectItem
                 image={LightspeedImg}
                 title="Lightspeed!"
