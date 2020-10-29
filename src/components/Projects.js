@@ -72,7 +72,7 @@ export default function Projects() {
                 title="Random Hexcode"
                 description="Produces a random hex code shows its colour when the user presses space"
                 footer="#javascript #html #css"
-                link="https://liammorgan.github.io/"
+                link="https://liammorgan.github.io/random-hex"
             />
         </div>
     );
