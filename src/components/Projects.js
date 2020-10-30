@@ -54,13 +54,6 @@ export default function Projects() {
                 link="https://liammorgan.github.io/new_tab/"
             />
             <ProjectItem
-                image={MatrixImg}
-                title="Matrix scrolling demo"
-                description="A non-interactive screensaver / demo inspired by the popular Matrix franchise"
-                footer="#javascript #p5.js #html #css"
-                link="https://liammorgan.github.io/matrix/"
-            />
-            <ProjectItem
                 image={PersonalSiteImg}
                 title="Personal Site"
                 description="This personal site is a project! Built to showcase my current / old projects and allow a way to show all my contact channels."
