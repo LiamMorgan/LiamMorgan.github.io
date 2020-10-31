@@ -6,7 +6,6 @@ import MouseDodgeImg from "../images/projects/mouse-dodge.png";
 import WaveDefenceImg from "../images/projects/wave-defence.png";
 import TwitterBotImg from "../images/projects/twitter-bot.png";
 import NewTabImg from "../images/projects/new-tab.png";
-import MatrixImg from "../images/projects/matrix.png";
 import RandomHex from "../images/projects/random-hex.png";
 
 export default function Projects() {
@@ -16,7 +15,7 @@ export default function Projects() {
                 image={LightspeedImg}
                 title="Lightspeed!"
                 description="'Lightspeed!' is a personal project to create a phone game worthy of the android play store, made using unity engine and C#, features microtranscations and has great reviews from the players"
-                footer="#C# #unity #android"
+                footer="#csharp #unity #android"
                 link="https://play.google.com/store/apps/details?id=com.Slash3Games.Lightspeed"
             /> 
             <ProjectItem
